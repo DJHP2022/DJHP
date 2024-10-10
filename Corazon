@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corazón Interactivo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .heart {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: red;
+            transform: rotate(-45deg);
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .heart:before, .heart:after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        .heart:before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 50px;
+            top: 0;
+        }
+
+        #messages {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart" id="heart"></div>
+    <div id="messages"></div>
+
+    <script>
+        const heart = document.getElementById('heart');
+        const messages = document.getElementById('messages');
+
+        heart.addEventListener('click', () => {
+            const newMessage = document.createElement('div');
+            newMessage.textContent = 'Me Gustas';
+            messages.appendChild(newMessage);
+        });
+    </script>
+
+</body>
+</html>
